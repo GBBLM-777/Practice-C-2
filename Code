@@ -1,0 +1,406 @@
+/*Create a C++ program that will show the user the following and enter his/her choice:
+**************MENU**************
+[1] PRIME NUMBER
+[2] RIGHT TRIANGLE
+[3] FIBONACCI SERIES
+[4] FACTORIAL
+[5] EXIT
+*********************************
+ENTER YOUR CHOICE: _
+***Every valid choice should have system(“cls”) after taking the input.
+*/
+
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main()
+{
+	//declaration statement
+	int decision;
+	
+	// Return to Main Menu statement
+	bool YN=true;
+	bool InvYN=false;
+	char choice;
+		
+	//executable statement (Input-Process-Output)
+	do
+	{
+		do
+		{
+			//Input and Error Handling
+			system ("cls");
+			cout<<""<<endl;
+			cout<<"**************MENU**************"<<endl;
+			cout<<""<<endl;
+			cout<<"[1] PRIME NUMBER"<<endl;	
+			cout<<""<<endl;
+			cout<<"[2] RIGHT TRIANGLE"<<endl;
+			cout<<""<<endl;
+			cout<<"[3] FIBONACCI SERIES"<<endl;
+			cout<<""<<endl;
+			cout<<"[4] FACTORIAL"<<endl;
+			cout<<""<<endl;
+			cout<<"[5] EXIT"<<endl;
+			cout<<""<<endl;
+			cout<<"*********************************"<<endl;
+			cout<<""<<endl;
+			cout<<"ENTER YOUR CHOICE: ";
+			cin>>decision;
+		}
+		while (decision<1||decision>5); 
+		
+		//process
+		switch (decision)
+		{
+			case 1:	
+			{
+				/* [1] PRIME NUMBER:Create a C++ program that would input a number and output if the number entered is 
+				PRIME or NOT PRIME. A prime number is a number with a factor of one and only itself.
+				Examples of Prime Numbers are: 2, 3, 5, 7, 11, 19, 23, etc.
+				Sample Output:
+				Enter a Number: 5
+				5 is a Prime Number.
+				Return to Main Menu? [Y/N]: _
+				***If Y then go back to the menu. If N, then terminate the program.*/
+					
+				
+				//declaration statement
+				int nbr, n;
+				bool pnum = true;
+				
+				system ("cls");
+				
+				//Input
+				cout<<""<<endl;
+				cout<<"==========PRIME NUMBER=========="<<endl;
+				cout<<""<<endl;
+				cout<<"Please, Enter a Prime Number: ";
+				cin>>nbr;
+
+				//Error Handling
+				do
+				{
+					if (nbr<1)
+					{
+						system ("cls");
+						cout<<""<<endl;
+						cout<<"==========PRIME NUMBER=========="<<endl;
+						cout<<""<<endl;
+						cout<<"The number entered is either zero (0) or a negative number (-)"<<endl;
+						cout<<"Please Try Again!"<<endl;
+						cout<<"Enter a Positive Number: ";
+						cin>>nbr;
+					}	
+				}
+				while (nbr<1);
+				
+				//Process
+				if (nbr==1||nbr==0)
+				{
+					pnum = false;
+				}
+				
+				for (n=2; n<nbr/2; n++)
+				{
+					if (nbr%n==0)
+					{
+						pnum = false;
+					}
+				}
+				
+				//Output	
+				if (pnum)
+				{
+					system ("cls");
+					cout<<""<<endl;
+					cout<<"==========PRIME NUMBER=========="<<endl;
+					cout<<""<<endl;
+					cout<<nbr<<" is a PRIME NUMBER."<<endl;
+					cout<<""<<endl;
+				}
+				
+				else 
+				{
+					system ("cls");
+					cout<<""<<endl;
+					cout<<"==========PRIME NUMBER=========="<<endl;
+					cout<<""<<endl;
+					cout<<nbr<<" is NOT A PRIME NUMBER."<<endl;
+					cout<<""<<endl;
+				}
+			
+			break;
+			}
+			
+			case 2:
+			{
+				/*[2] RIGHT TRIANGLE: Create a C++ program that will ask the user the size 
+				of the multiplication table and display it corresponding output on screen.
+				Sample Output:
+				Enter the Size of Right Triangle: 5
+				1
+				1 2
+				1 2 3
+				1 2 3 4
+				1 2 3 4 5
+				Return to Main Menu? [Y/N]: _
+				***If Y then go back to the menu. If N, then terminate the program.*/
+				
+				
+				//declaration statement
+				int size, a, b;
+				
+				system("cls");
+				
+				//Input
+				cout<<""<<endl;
+				cout<<"==========RIGHT TRIANGLE=========="<<endl;
+				cout<<""<<endl;
+				cout<<"Please, Enter Size of Right Triangle: ";
+				cin>>size;
+				
+				//Error Handling
+				do
+				{
+					if (size<=0)
+					{
+						system("cls");
+						cout<<""<<endl;
+						cout<<"==========RIGHT TRIANGLE=========="<<endl;
+						cout<<""<<endl;
+						cout<<"The number entered is either zero (0) or a negative number (-)"<<endl;
+						cout<<"Please Try Again!"<<endl;
+						cout<<"Enter a positive number or a number greater than zero (0): ";
+						cin>>size;
+					}	
+					
+				}
+				while (size<=0);
+					
+				//Process
+				system("cls");
+				
+				cout<<""<<endl;
+				cout<<"==========RIGHT TRIANGLE=========="<<endl;
+				cout<<""<<endl;
+				for (a=1; a<=size; a++)
+				{	
+					for (b=1; b<=a; b++)
+					{
+						cout<<"   "<<b<<"   "; //Output
+					}
+					cout<<""<<endl;
+					cout<<""<<endl;
+				}
+				
+			break;	
+			}
+			
+			case 3:
+			{
+				/*[3] FIBONACCI SERIES: Create a C++ program that prompts the user 
+				to enter a number then display its Fibonacci series.
+				Sample Output:
+				Enter a Number: 6
+				1 1 2 3 5 8
+				Return to Main Menu? [Y/N]: _
+				***If Y then go back to the menu. If N, then terminate the program.*/
+				
+				//declaration statement
+				int num; 
+				int x=0;
+				int y=1;
+				int z=0;
+				
+				system("cls");
+				
+				//Input
+				cout<<""<<endl;
+				cout<<"==========FIBONACCI SERIES=========="<<endl;
+				cout<<""<<endl;
+				cout<<"Please, Enter a Number: ";
+				cin>>num;
+				
+				//Error Handling
+				do
+				{
+					if (num<=0)
+					{
+						system("cls");
+						cout<<""<<endl;
+						cout<<"==========FIBONACCI SERIES=========="<<endl;
+						cout<<""<<endl;
+						cout<<"The number entered is either zero (0) or a negative number (-)"<<endl;
+						cout<<"Please Try Again!"<<endl;
+						cout<<"Enter a positive number or a number greater than zero (0): ";
+						cin>>num;
+					}	
+					
+				}
+				while (num<=0);
+				
+				//Process
+				system("cls");
+				if (num>0)
+				{
+					cout<<""<<endl;
+					cout<<"==========FIBONACCI SERIES=========="<<endl;
+					cout<<""<<endl;
+					do
+					{
+						x = z + y;
+						y = z;
+						z = x;
+						num--;
+						cout<<"";
+						cout<<"   "<<x;//Output
+					}
+					while (num>0);
+					cout<<""<<endl;
+					cout<<""<<endl;
+				}
+				
+			break;
+			}
+			
+			case 4:
+			{
+				/*[4] FACTORIAL: Create a C++ program that prompt the user to enter a 
+				number and compute for the factorial value.
+				Sample Output:
+				Enter a Number: 5
+				Factorial of 5*4*3*2*1 is 120.
+				Return to Main Menu? [Y/N]: _
+				***If Y then go back to the menu. If N, then terminate the program.*/
+				
+				//declaration statement
+				int nber=0;
+				
+				system("cls");
+				
+				//Input
+				cout<<""<<endl;
+				cout<<"==========FACTORIAL=========="<<endl;
+				cout<<""<<endl;
+				cout<<"Please, Enter a Number: ";
+				cin>>nber;
+				
+				//Error Handling
+				do
+				{
+					if (nber<0)
+					{
+						system("cls");
+						cout<<""<<endl;
+						cout<<"==========FACTORIAL=========="<<endl;
+						cout<<""<<endl;
+						cout<<"The number entered is a negative number (-)"<<endl;
+						cout<<"Please Try Again!"<<endl;
+						cout<<"Enter a number greater than or equal to zero (0): ";
+						cin>>nber;
+					}	
+					
+				}
+				while (nber<0);
+				
+				//Process
+				system("cls");
+				if (nber==0||nber==1)
+				{
+					
+					cout<<""<<endl;
+					cout<<"==========FACTORIAL=========="<<endl;
+					cout<<""<<endl;
+					cout<<"Factorial of "<<nber<<" is 1"<<endl;//Output
+					cout<<""<<endl;
+				}
+				
+				else
+				{
+					cout<<""<<endl;
+					cout<<"==========FACTORIAL=========="<<endl;
+					cout<<""<<endl;
+					cout<<"Factorial of "<<nber;
+					
+					for (int q=nber; q>1;)
+					{
+						q--;
+						cout<<" * "<<q;
+					}
+					
+					for (int p=nber; p>1;)
+					{
+						p--;
+						nber=nber*p;
+					}
+					
+					cout<<" is ";
+					cout<<nber<<endl;//Output
+					cout<<""<<endl;
+				}
+				
+			break;
+			}
+			
+			case 5:/*[5] EXIT: End the program*/
+			{
+				system("cls");
+				cout<<""<<endl;
+				cout<<"Program Terminated, Goodbye and Thank You!"<<endl;//Output
+				return (0);
+				
+			break;
+			}
+			
+		}
+		
+		/*Hint: Use Switch Case Statement for the choices in the Main Menu. Use Do-While
+		Statement and Continue Statement to validate the choices of 1-5 and Y/N.*/
+		do
+		{
+			//Input
+			cout<<"*********************************"<<endl;
+			cout<<"Return to Main Menu [Y/N]?"<<endl;
+			cout<<""<<endl;
+			cout<<"Yes/Y returns to the main menu"<<endl;
+			cout<<"No/N terminates and ends the program"<<endl;
+			cout<<""<<endl;
+			cout<<"What is your choice?: ";
+			cin>>choice;
+			
+			//Process
+			choice=toupper(choice);//"y" --> "Y"
+			
+				if (choice=='Y')
+				{
+					YN=true;
+					InvYN=false;
+				}
+				
+				else if (choice=='N')
+				{
+					YN=false;
+					InvYN=false;
+					system ("cls");
+					cout<<""<<endl;
+					cout<<"Program Terminated, Goodbye and Thank You!"<<endl;//Output
+				}
+				
+				else //Error Handling
+				{
+					system ("cls");
+					cout<<""<<endl;
+					cout<<"Invalid Input, Y/N are the only options, Please Try Again!"<<endl;
+					cout<<""<<endl;
+					InvYN=true;
+				}
+			
+		}
+		while (InvYN == true);
+	}
+	while (YN==true);
+}
+
